@@ -1,0 +1,22 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <list>
+          <option value="tf_keras" />
+          <option value="fastapi" />
+          <option value="uvicorn" />
+          <option value="google-api-python-client" />
+          <option value="google-auth" />
+          <option value="google-auth-oauthlib" />
+          <option value="google-auth-httplib2" />
+          <option value="packaging" />
+          <option value="pydantic" />
+          <option value="supabase" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="SqlNoDataSourceInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+  </profile>
+</component>
