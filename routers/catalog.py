@@ -6,11 +6,20 @@ router = APIRouter(prefix="/catalog", tags=["Catalog"])
 
 
 @router.get("/products")
-async def get_products():
-    try:
-        return await ecwid.get("/products")
-    except Exception as e:
-        raise e
+async def get_products(
+    offset: int = 0,
+    limit: int = 100,
+    keyword: str | None = None
+):
+    params = {
+        "offset": offset,
+        "limit": limit
+    }
+
+    if keyword:
+        params["keyword"] = keyword
+
+    return await ecwid.get("/products", params)
 
 
 @router.get("/products/search")
