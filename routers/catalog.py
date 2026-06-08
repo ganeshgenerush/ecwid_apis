@@ -2,7 +2,7 @@ from fastapi import APIRouter, Query
 from services.ecwid import ecwid
 from fastapi import Body
 
-router = APIRouter(prefix="/catalog", tags=["Catalog"])
+router = APIRouter(tags=["Catalog"])
 
 
 @router.get("/products")

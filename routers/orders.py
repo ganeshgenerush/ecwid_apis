@@ -16,16 +16,7 @@ async def get_orders(offset: int = 0):
         })
 
 
-@router.get("/{order_id}")
-async def get_order(
-        order_id: int
-):
-    return await ecwid.get(
-        f"/orders/{order_id}"
-    )
-
-
-@router.get("/search/")
+@router.get("/search")
 async def search_orders(
         email: str | None = None,
         customer_id: int | None = None,
@@ -54,6 +45,15 @@ async def search_orders(
     return await ecwid.get(
         "/orders",
         params
+    )
+
+
+@router.get("/{order_id}")
+async def get_order(
+        order_id: int
+):
+    return await ecwid.get(
+        f"/orders/{order_id}"
     )
 
 
