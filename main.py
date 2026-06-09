@@ -14,6 +14,7 @@ from routers.coupons import router as coupon_router
 from routers.subscriptions import router as subscription_router
 from routers.staff import router as staff_router
 from routers.payment_options import router as payment_options_router
+from routers.store_profile import router as store_profile_router
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -63,3 +64,4 @@ app.include_router(coupon_router)
 app.include_router(subscription_router)
 app.include_router(staff_router)
 app.include_router(payment_options_router)
+app.include_router(store_profile_router)

@@ -67,12 +67,18 @@ class EcwidClient:
         response.raise_for_status()
         return response.json()
 
-    async def put(self, endpoint: str, payload: dict):
+    async def put(
+            self,
+            endpoint: str,
+            payload: dict | None = None,
+            params: dict | None = None
+    ):
         async with httpx.AsyncClient() as client:
             response = await client.put(
                 f"{self.base_url}{endpoint}",
                 headers=self.headers,
-                json=payload
+                json=payload,
+                params=params
             )
 
         response.raise_for_status()
@@ -104,8 +110,13 @@ class EcwidClientProxy:
     ):
         return await self._client().post(endpoint, payload, params)
 
-    async def put(self, endpoint: str, payload: dict):
-        return await self._client().put(endpoint, payload)
+    async def put(
+            self,
+            endpoint: str,
+            payload: dict | None = None,
+            params: dict | None = None
+    ):
+        return await self._client().put(endpoint, payload, params)
 
     async def delete(self, endpoint: str):
         return await self._client().delete(endpoint)

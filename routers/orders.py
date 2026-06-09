@@ -16,6 +16,14 @@ async def get_orders(offset: int = 0):
         })
 
 
+@router.post("/")
+async def create_order(payload: dict = Body(...)):
+    return await ecwid.post(
+        "/orders",
+        payload
+    )
+
+
 @router.get("/search")
 async def search_orders(
         email: str | None = None,
